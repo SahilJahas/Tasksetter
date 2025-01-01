@@ -4,184 +4,124 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>To-Do List</title>
-  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <script src="script.js" defer></script>
-  <style>
-    /* Basic styles for the page */
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #f4f4f4;
-    }
-
-    .container {
-      width: 80%;
-      margin: 0 auto;
-    }
-
-    nav {
-      background-color: #333;
-      padding: 10px;
-      color: #fff;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    .logo {
-      font-size: 24px;
-    }
-
-    .navbar-links {
-      list-style-type: none;
-      margin: 0;
-      padding: 0;
-      display: flex;
-    }
-
-    .navbar-links li {
-      margin-left: 20px;
-    }
-
-    .navbar-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 18px;
-    }
-
-    .todo-container {
-      background-color: #fff;
-      padding: 20px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      margin-top: 30px;
-    }
-
-    #task-list {
-      margin-top: 20px;
-    }
-
-    .task {
-      background-color: #e1e1e1;
-      padding: 10px;
-      margin-bottom: 10px;
-      border-radius: 4px;
-    }
-
-    .modal {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0, 0, 0, 0.5);
-      justify-content: center;
-      align-items: center;
-    }
-
-    .modal-content {
-      background-color: #fff;
-      padding: 20px;
-      border-radius: 4px;
-      width: 300px;
-      text-align: center;
-    }
-
-    .close-modal {
-      margin-top: 10px;
-      background-color: #333;
-      color: #fff;
-      padding: 5px 10px;
-      border: none;
-      cursor: pointer;
-    }
-
-    .close-modal:hover {
-      background-color: #555;
-    }
-  </style>
 </head>
 <body>
   <!-- Navbar -->
-  <nav>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container">
-      <h1 class="logo">Tasksetter</h1>
-      <ul class="navbar-links">
-        <li><a href="#register">Register</a></li>
-        <li><a href="#login">Login</a></li>
-      </ul>
+      <a class="navbar-brand" href="#">Tasksetter</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="#register">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#login">Login</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </nav>
 
   <!-- Main content -->
-  <div class="container">
+  <div class="container my-5">
     <h2>Welcome to the To-Do List App</h2>
 
-    <div class="todo-container">
+    <div class="todo-container mt-4 p-4 shadow-sm bg-white rounded">
       <ul id="task-list">
         <!-- Tasks will be listed here -->
       </ul>
 
-      <p><a href="add.jsp">Go to Add Task Page</a></p>
+      <a href="add.jsp" class="btn btn-primary mt-3">Go to Add Task Page</a>
     </div>
   </div>
 
   <!-- Modal for Register -->
-  <div id="register" class="modal">
-    <div class="modal-content">
-      <h2>Register</h2>
-      <form id="register-form">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
-        
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
-        
-        <button type="submit">Register</button>
-      </form>
-      <button class="close-modal">Close</button>
+  <div id="register" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Register</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="register-form">
+            <div class="form-group">
+              <label for="username">Username</label>
+              <input type="text" id="username" name="username" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input type="password" id="password" name="password" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Register</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
 
   <!-- Modal for Login -->
-  <div id="login" class="modal">
-    <div class="modal-content">
-      <h2>Login</h2>
-      <form id="login-form">
-        <label for="login-username">Username:</label>
-        <input type="text" id="login-username" name="username" required />
-        
-        <label for="login-password">Password:</label>
-        <input type="password" id="login-password" name="password" required />
-        
-        <button type="submit">Login</button>
-      </form>
-      <button class="close-modal">Close</button>
+  <div id="login" class="modal fade" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="login-form">
+            <div class="form-group">
+              <label for="login-username">Username</label>
+              <input type="text" id="login-username" name="username" class="form-control" required />
+            </div>
+            <div class="form-group">
+              <label for="login-password">Password</label>
+              <input type="password" id="login-password" name="password" class="form-control" required />
+            </div>
+            <button type="submit" class="btn btn-primary">Login</button>
+          </form>
+        </div>
+      </div>
     </div>
   </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <script>
     // Handle modal toggle for Register and Login
     const registerLink = document.querySelector('a[href="#register"]');
     const loginLink = document.querySelector('a[href="#login"]');
-    const closeButtons = document.querySelectorAll('.close-modal');
-    
+    const closeButtons = document.querySelectorAll('.close');
+
     const registerModal = document.getElementById('register');
     const loginModal = document.getElementById('login');
 
     registerLink.addEventListener('click', () => {
-      registerModal.style.display = 'flex';
+      $('#register').modal('show');
     });
 
     loginLink.addEventListener('click', () => {
-      loginModal.style.display = 'flex';
+      $('#login').modal('show');
     });
 
     closeButtons.forEach(button => {
       button.addEventListener('click', () => {
-        registerModal.style.display = 'none';
-        loginModal.style.display = 'none';
+        $('#register').modal('hide');
+        $('#login').modal('hide');
       });
     });
 
@@ -194,7 +134,7 @@
       const taskText = taskInput.value.trim();
       if (taskText !== '') {
         const li = document.createElement('li');
-        li.classList.add('task');
+        li.classList.add('list-group-item', 'd-flex', 'justify-content-between');
         li.textContent = taskText;
         taskList.appendChild(li);
         taskInput.value = '';
