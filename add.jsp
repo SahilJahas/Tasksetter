@@ -9,10 +9,77 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEJ03Ruq7l6p1JIH4I6EIZT5T0htn4w0wEx8c24VJgS1IHVdBoPXAYWVh9v5p" crossorigin="anonymous">
+    
+    <!-- Custom Styles for Color and Size -->
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light Blue Background */
+        }
+        .container {
+            max-width: 1263px;  /* Increased width */
+            margin-top: 10px;
+        }
+        h2 {
+            color: #ff6347; /* Tomato Color */
+            font-size: 2rem; /* Slightly smaller heading */
+        }
+        .card {
+            background-color: #f9f9f9;
+            border: 10px solid #4caf50;
+            border-radius: 12px;  /* Larger border-radius */
+            box-shadow: 0 8px 12px rgba(0, 0, 0, 0.1); /* Larger shadow */
+            padding: 15px; /* Reduced padding for a shorter form */
+            width: 100%;
+            box-sizing: border-box; /* Ensure padding is inside the border */
+        }
+        .form-label {
+            color: #2c3e50; /* Dark Blue */
+            font-size: 1.3rem;  /* Slightly smaller font size for labels */
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            border: 1px solid #3498db; /* Blue Border */
+            font-size: 1rem;  /* Slightly smaller text inside fields */
+            padding: 10px; /* Reduced padding */
+            width: 100%;  /* Ensure all form fields have the same width */
+            box-sizing: border-box; /* Prevent overflow */
+        }
+        .btn-primary {
+            background-color: #3498db;
+            border-color: #2980b9;
+            font-size: 1.1rem;  /* Slightly smaller button font */
+            padding: 12px 22px; /* Reduced button size */
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+            border-color: #3498db;
+        }
+        .alert {
+            border-radius: 15px;
+            padding: 15px;
+        }
+        .alert-success {
+            background-color: #28a745;
+            color: white;
+            font-size: 1.1rem;
+        }
+        .alert-danger {
+            background-color: #e74c3c;
+            color: white;
+            font-size: 1.1rem;
+        }
+        .btn-link {
+            color: #8e44ad; /* Purple Color */
+            font-size: 1.2rem;  /* Larger font size */
+        }
+        .btn-link:hover {
+            color: #9b59b6; /* Darker Purple on Hover */
+        }
+    </style>
 </head>
-<body class="bg-light">
+<body>
 
-<div class="container mt-5">
+<div class="container">
     <h2 class="text-center mb-4">Add Task Record</h2>
 
     <%
@@ -69,7 +136,7 @@
 
     <!-- Task Form -->
     <form action="add.jsp" method="POST">
-        <div class="card p-4 shadow-sm">
+        <div class="card p-3 shadow-sm">
             <div class="mb-3">
                 <label for="description" class="form-label">Description:</label>
                 <input type="text" class="form-control" id="description" name="description" required>
@@ -93,8 +160,8 @@
                 <input type="date" class="form-control" id="duedate" name="duedate" required>
             </div>
 
-            <div class="d-grid">
-                <button type="submit" class="btn btn-primary">Add Task</button>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn- btn-lg">Add Task</button>
             </div>
         </div>
     </form>

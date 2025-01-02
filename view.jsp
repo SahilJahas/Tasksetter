@@ -6,7 +6,7 @@
 <head>
     <meta charset="ISO-8859-1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>View Student Records</title>
+    <title>View Task Records</title>
 
     <!-- Bootstrap CSS (CDN) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
@@ -42,7 +42,7 @@
 
             // Display task records in a table
             out.println("<table class='table table-bordered table-striped'>");
-            out.println("<thead class='table-dark'><tr><th>ID</th><th>Description</th><th>Status</th><th>Create Date</th><th>Due Date</th></tr></thead>");
+            out.println("<thead class='table-dark'><tr><th>ID</th><th>Description</th><th>Status</th><th>Create Date</th><th>Due Date</th><th>Actions</th></tr></thead>");
             out.println("<tbody>");
 
             while (rs.next()) {
@@ -58,6 +58,14 @@
                 out.println("<td>" + status + "</td>");
                 out.println("<td>" + createdate + "</td>");
                 out.println("<td>" + duedate + "</td>");
+                
+                // Add the "Edit" button with a link to the edit.jsp page
+                out.println("<td>");
+                out.println("<a href='edit.jsp?id=" + id + "' class='btn btn-warning'>Edit</a> ");
+                
+                // Add the "Delete" button with a link to delete.jsp page
+                out.println("<a href='delete.jsp?id=" + id + "' class='btn btn-danger' onclick='return confirm(\"Are you sure you want to delete this task?\")'>Delete</a>");
+                out.println("</td>");
                 out.println("</tr>");
             }
 
